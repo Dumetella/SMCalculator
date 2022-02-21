@@ -55,466 +55,444 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumetella.simplexmethodcalculator.Controller">
-    <children>
-        <MenuBar VBox.vgrow="NEVER">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
+<VBox prefHeight="600.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.dumetella.simplexmethodcalculator.Controller">
+    <MenuBar VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="New"/>
+            <MenuItem mnemonicParsing="false" text="Open…"/>
+            <Menu mnemonicParsing="false" text="Open Recent"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem mnemonicParsing="false" text="Close"/>
+            <MenuItem mnemonicParsing="false" text="Save"/>
+            <MenuItem mnemonicParsing="false" text="Save As…"/>
+            <MenuItem mnemonicParsing="false" text="Revert"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem mnemonicParsing="false" text="Preferences…"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem mnemonicParsing="false" text="Quit"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" text="Undo"/>
+            <MenuItem mnemonicParsing="false" text="Redo"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem mnemonicParsing="false" text="Cut"/>
+            <MenuItem mnemonicParsing="false" text="Copy"/>
+            <MenuItem mnemonicParsing="false" text="Paste"/>
+            <MenuItem mnemonicParsing="false" text="Delete"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem mnemonicParsing="false" text="Select All"/>
+            <MenuItem mnemonicParsing="false" text="Unselect All"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp"/>
+        </Menu>
+    </MenuBar>
+    <SplitPane dividerPositions="0.48" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+        <VBox prefHeight="573.0" prefWidth="450.0">
+            <AnchorPane prefHeight="0.0" prefWidth="468.0" VBox.vgrow="SOMETIMES">
+                <GridPane AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0"
+                                           prefWidth="212.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0"
+                                           prefWidth="104.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <ChoiceBox fx:id="mConstraints" onAction="#resizeGrid" value="5"
+                               GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="2"/>
+                                <String fx:value="3"/>
+                                <String fx:value="4"/>
+                                <String fx:value="5"/>
+                            </FXCollections>
+                        </items>
+                    </ChoiceBox>
+                    <ChoiceBox fx:id="nConstraints" onAction="#resizeGrid" value="5"
+                               GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+                               GridPane.vgrow="ALWAYS">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="2"/>
+                                <String fx:value="3"/>
+                                <String fx:value="4"/>
+                                <String fx:value="5"/>
+                            </FXCollections>
+                        </items>
+                    </ChoiceBox>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Кол-во ограничений m">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <Label text="Кол-во ограничений n" GridPane.rowIndex="1">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                </GridPane>
+            </AnchorPane>
+            <AnchorPane VBox.vgrow="ALWAYS">
+                <Label layoutX="56.0" layoutY="129.0" prefHeight="36.0" prefWidth="44.0" text=" Z(x)"
+                       AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="129.0">
+                    <font>
+                        <Font name="Times New Roman Italic" size="22.0"/>
+                    </font>
+                </Label>
+                <GridPane prefHeight="60.0" prefWidth="218.0" AnchorPane.leftAnchor="65.0"
+                          AnchorPane.topAnchor="100.0" fx:id="xGrid">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0"
+                          GridPane.rowIndex="1">
+                        <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                   minWidth="45.0"/>
+                    </HBox>
+                    <HBox layoutX="10.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                          GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                   minWidth="45.0"/>
+                    </HBox>
+                    <HBox layoutX="55.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                          GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                   minWidth="45.0"/>
+                    </HBox>
+                    <HBox layoutX="100.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                          GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                   minWidth="45.0"/>
+                    </HBox>
+                    <HBox layoutX="145.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                          GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                   minWidth="45.0"/>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0"
+                          GridPane.rowIndex="0">
+                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X1"/>
+                    </HBox>
+                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                          GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X2"/>
+                    </HBox>
+                    <HBox layoutX="55.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                          GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X3"/>
+                    </HBox>
+                    <HBox layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                          GridPane.columnIndex="3" GridPane.rowIndex="0">
+                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X4"/>
+                    </HBox>
+                    <HBox layoutX="145.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                          GridPane.columnIndex="4" GridPane.rowIndex="0">
+                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X5"/>
+                    </HBox>
+                </GridPane>
+                <SVGPath content="M0, 0 H0, 30&#10;M30, 0 L15, 10&#10;M30, 0 L15, -10" stroke="#070707"
+                         strokeWidth="2.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="135.0"/>
+                <ChoiceBox layoutX="378.0" layoutY="132.0" prefHeight="30.0" prefWidth="58.0" value="max"
+                           AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="132.0">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="min"/>
+                            <String fx:value="max"/>
+                        </FXCollections>
                     </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
-                        <MenuItem mnemonicParsing="false" text="Unselect All" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-            <items>
-                <VBox prefHeight="573.0" prefWidth="450.0">
-                    <children>
-                        <AnchorPane prefHeight="0.0" prefWidth="468.0" VBox.vgrow="SOMETIMES">
-                            <children>
-                                <GridPane AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="20.0">
-                                    <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="212.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="104.0" />
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    </rowConstraints>
-                                    <children>
-                                        <ChoiceBox fx:id="mConstraints" onAction="#resizeGrid" value="5" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-                                            <items>
-                                                <FXCollections fx:factory="observableArrayList">
-                                                    <String fx:value="2" />
-                                                    <String fx:value="3" />
-                                                    <String fx:value="4" />
-                                                    <String fx:value="5" />
-                                                </FXCollections>
-                                            </items>
-                                        </ChoiceBox>
-                                        <ChoiceBox fx:id="nConstraints" onAction="#resizeGrid" value="5" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
-                                            <items>
-                                                <FXCollections fx:factory="observableArrayList">
-                                                    <String fx:value="2" />
-                                                    <String fx:value="3" />
-                                                    <String fx:value="4" />
-                                                    <String fx:value="5" />
-                                                </FXCollections>
-                                            </items>
-                                        </ChoiceBox>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" text="Кол-во ограничений m">
-                                            <font>
-                                                <Font size="18.0" />
-                                            </font>
-                                        </Label>
-                                        <Label text="Кол-во ограничений n" GridPane.rowIndex="1">
-                                            <font>
-                                                <Font size="18.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
-                                </GridPane>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane VBox.vgrow="ALWAYS">
-                            <children>
-                                <Label layoutX="56.0" layoutY="129.0" prefHeight="36.0" prefWidth="44.0" text=" Z(x)" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="129.0">
-                                    <font>
-                                        <Font name="Times New Roman Italic" size="22.0" />
-                                    </font>
-                                </Label>
-                                <GridPane prefHeight="60.0" prefWidth="218.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0" fx:id="xGrid">
-                                    <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    </rowConstraints>
-                                    <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                 <children>
-                                    <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                 </children>
-                              </HBox>
-                              <HBox layoutX="10.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <children>
-                                    <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                 </children>
-                              </HBox>
-                              <HBox layoutX="55.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                 <children>
-                                    <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                 </children>
-                              </HBox>
-                              <HBox layoutX="100.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                                 <children>
-                                    <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                 </children>
-                              </HBox>
-                              <HBox layoutX="145.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                                 <children>
-                                    <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                 <children>
-                                              <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X1" />
-                                 </children>
-                              </HBox>
-                              <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X2" />
-                                 </children>
-                              </HBox>
-                              <HBox layoutX="55.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X3" />
-                                 </children>
-                              </HBox>
-                              <HBox layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X4" />
-                                 </children>
-                              </HBox>
-                              <HBox layoutX="145.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="0">
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X5" />
-                                 </children>
-                              </HBox>
-                                    </children>
-                                </GridPane>
-                                <SVGPath content="M0, 0 H0, 30&#10;M30, 0 L15, 10&#10;M30, 0 L15, -10" stroke="#070707" strokeWidth="2.0" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="135.0" />
-                                <ChoiceBox layoutX="378.0" layoutY="132.0" prefHeight="30.0" prefWidth="58.0" value="max" AnchorPane.leftAnchor="378.0" AnchorPane.topAnchor="132.0">
-                                    <items>
-                                        <FXCollections fx:factory="observableArrayList">
-                                            <String fx:value="min" />
-                                            <String fx:value="max" />
-                                        </FXCollections>
-                                    </items>
-                                </ChoiceBox>
-                                <HBox AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="200.0">
-                                    <children>
-                                        <GridPane fx:id="mainGrid" prefHeight="150.0" prefWidth="225.0">
-                                            <columnConstraints>
-                                                <ColumnConstraints hgrow="NEVER" percentWidth="20.0" />
-                                                <ColumnConstraints hgrow="NEVER" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="NEVER" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="NEVER" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="NEVER" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
-                                            </columnConstraints>
-                                            <rowConstraints>
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                            </rowConstraints>
-                                 <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="145.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="0">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="55.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="100.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="145.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="190.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="55.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="100.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="145.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="190.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="55.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="100.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="145.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="190.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="10.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="55.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="100.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="145.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                        </GridPane>
-                                        <GridPane fx:id="subGrid" prefHeight="150.0" prefWidth="142.0" HBox.hgrow="NEVER">
-                                            <columnConstraints>
-                                                <ColumnConstraints hgrow="NEVER" percentWidth="45.0" />
-                                                <ColumnConstraints hgrow="NEVER" percentWidth="60.0" />
-                                            </columnConstraints>
-                                            <rowConstraints>
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                                <RowConstraints percentHeight="20.0" vgrow="NEVER" />
-                                            </rowConstraints>
-                                            <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="50.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="50.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="50.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="50.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                       <children>
-                                          <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="50.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                       <children>
-                                                      <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="40.0" value="&gt;=">
-                                                          <items>
-                                                              <FXCollections fx:factory="observableArrayList">
-                                                                  <String fx:value="&gt;=" />
-                                                                  <String fx:value="=" />
-                                                                  <String fx:value="&lt;=" />
-                                                              </FXCollections>
-                                                          </items>
-                                                      </ChoiceBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                       <children>
-                                                      <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" value="&gt;=">
-                                                          <items>
-                                                              <FXCollections fx:factory="observableArrayList">
-                                                                  <String fx:value="&gt;=" />
-                                                                  <String fx:value="=" />
-                                                                  <String fx:value="&lt;=" />
-                                                              </FXCollections>
-                                                          </items>
-                                                      </ChoiceBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                                       <children>
-                                                      <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" value="&gt;=">
-                                                          <items>
-                                                              <FXCollections fx:factory="observableArrayList">
-                                                                  <String fx:value="&gt;=" />
-                                                                  <String fx:value="=" />
-                                                                  <String fx:value="&lt;=" />
-                                                              </FXCollections>
-                                                          </items>
-                                                      </ChoiceBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                                       <children>
-                                                      <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" value="&gt;=">
-                                                          <items>
-                                                              <FXCollections fx:factory="observableArrayList">
-                                                                  <String fx:value="&gt;=" />
-                                                                  <String fx:value="=" />
-                                                                  <String fx:value="&lt;=" />
-                                                              </FXCollections>
-                                                          </items>
-                                                      </ChoiceBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                                       <children>
-                                                      <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" value="&gt;=">
-                                                          <items>
-                                                              <FXCollections fx:factory="observableArrayList">
-                                                                  <String fx:value="&gt;=" />
-                                                                  <String fx:value="=" />
-                                                                  <String fx:value="&lt;=" />
-                                                              </FXCollections>
-                                                          </items>
-                                                      </ChoiceBox>
-                                       </children>
-                                    </HBox>
-                                            </children>
-                                        </GridPane>
-                                    </children>
-                                </HBox>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane VBox.vgrow="SOMETIMES">
-                            <children>
-                                <ButtonBar layoutX="28.0" prefHeight="25.0" prefWidth="370.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="28.0">
-                                    <buttons>
-                                        <Button fx:id="solveButton" mnemonicParsing="false" text="Решение" />
-                                        <Button fx:id="clearButton" mnemonicParsing="false" text="Очистить" onAction="#Clear"/>
-                                        <Button fx:id="toDuoButton" mnemonicParsing="false" text="В двойственную" />
-                                    </buttons>
-                                </ButtonBar>
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </VBox>
-                <AnchorPane>
-                    <children>
-                        <Button layoutX="61.0" layoutY="416.0" mnemonicParsing="false" text="Prev" />
-                        <Button layoutX="390.0" layoutY="416.0" mnemonicParsing="false" text="Next" />
-                        <Label layoutX="232.0" layoutY="415.0" text="0/4">
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </Label>
-                        <TableView layoutX="61.0" layoutY="114.0" prefHeight="296.0" prefWidth="370.0">
-                            <columns>
-                                <TableColumn prefWidth="75.0" text="X1" />
-                                <TableColumn prefWidth="75.0" text="X2" />
-                                <TableColumn prefWidth="75.0" text="X3" />
-                                <TableColumn prefWidth="75.0" text="X4" />
-                                <TableColumn prefWidth="75.0" text="X5" />
-                            </columns>
-                        </TableView>
-                    </children>
-                </AnchorPane>
-            </items>
-        </SplitPane>
-    </children>
+                </ChoiceBox>
+                <HBox AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="200.0">
+                    <GridPane fx:id="mainGrid" prefHeight="150.0" prefWidth="225.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" percentWidth="20.0"/>
+                            <ColumnConstraints hgrow="NEVER" minWidth="10.0" percentWidth="20.0"
+                                               prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="NEVER" minWidth="10.0" percentWidth="20.0"
+                                               prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="NEVER" minWidth="10.0" percentWidth="20.0"
+                                               prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="NEVER" minWidth="10.0" percentWidth="20.0"
+                                               prefWidth="100.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                        </rowConstraints>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0"
+                              GridPane.rowIndex="0">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2"
+                              GridPane.rowIndex="0">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="3" GridPane.rowIndex="0">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="145.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="4" GridPane.rowIndex="0">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="55.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="100.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="145.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="4" GridPane.rowIndex="1">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="190.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="55.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="100.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="3" GridPane.rowIndex="2">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="145.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="4" GridPane.rowIndex="2">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="190.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="55.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="2" GridPane.rowIndex="3">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="100.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="3" GridPane.rowIndex="3">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="145.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="4" GridPane.rowIndex="3">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="190.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="0" GridPane.rowIndex="4">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="55.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="2" GridPane.rowIndex="4">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="100.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="3" GridPane.rowIndex="4">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                        <HBox layoutX="145.0" layoutY="130.0" prefHeight="100.0" prefWidth="200.0"
+                              GridPane.columnIndex="4" GridPane.rowIndex="4">
+                            <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0"
+                                       minWidth="45.0"/>
+                        </HBox>
+                    </GridPane>
+                    <GridPane fx:id="subGrid" prefHeight="150.0" prefWidth="142.0" HBox.hgrow="NEVER">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" percentWidth="45.0"/>
+                            <ColumnConstraints hgrow="NEVER" percentWidth="60.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                            <RowConstraints percentHeight="20.0" vgrow="NEVER"/>
+                        </rowConstraints>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                              GridPane.rowIndex="0">
+                            <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0"
+                                       minWidth="50.0"/>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                              GridPane.rowIndex="1">
+                            <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0"
+                                       minWidth="50.0"/>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                              GridPane.rowIndex="2">
+                            <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0"
+                                       minWidth="50.0"/>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                              GridPane.rowIndex="3">
+                            <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0"
+                                       minWidth="50.0"/>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                              GridPane.rowIndex="4">
+                            <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0"
+                                       minWidth="50.0"/>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0"
+                              GridPane.rowIndex="0">
+                            <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0"
+                                       minWidth="40.0" value="&gt;=">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="&gt;="/>
+                                        <String fx:value="="/>
+                                        <String fx:value="&lt;="/>
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0"
+                              GridPane.rowIndex="1">
+                            <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0"
+                                       minWidth="50.0" value="&gt;=">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="&gt;="/>
+                                        <String fx:value="="/>
+                                        <String fx:value="&lt;="/>
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0"
+                              GridPane.rowIndex="2">
+                            <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0"
+                                       minWidth="50.0" value="&gt;=">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="&gt;="/>
+                                        <String fx:value="="/>
+                                        <String fx:value="&lt;="/>
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0"
+                              GridPane.rowIndex="3">
+                            <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0"
+                                       minWidth="50.0" value="&gt;=">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="&gt;="/>
+                                        <String fx:value="="/>
+                                        <String fx:value="&lt;="/>
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0"
+                              GridPane.rowIndex="4">
+                            <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0"
+                                       minWidth="50.0" value="&gt;=">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="&gt;="/>
+                                        <String fx:value="="/>
+                                        <String fx:value="&lt;="/>
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+                        </HBox>
+                    </GridPane>
+                </HBox>
+            </AnchorPane>
+            <AnchorPane VBox.vgrow="SOMETIMES">
+                <ButtonBar layoutX="28.0" prefHeight="25.0" prefWidth="370.0" AnchorPane.bottomAnchor="10.0"
+                           AnchorPane.leftAnchor="40.0">
+                    <buttons>
+                        <Button mnemonicParsing="false" text="Решение"/>
+                        <Button mnemonicParsing="false" text="Очистить" onAction="#Clear"/>
+                        <Button mnemonicParsing="false" text="В двойственную"/>
+                    </buttons>
+                </ButtonBar>
+            </AnchorPane>
+        </VBox>
+        <AnchorPane>
+            <Button layoutX="61.0" layoutY="416.0" mnemonicParsing="false" text="Prev"/>
+            <Button layoutX="390.0" layoutY="416.0" mnemonicParsing="false" text="Next"/>
+            <Label layoutX="232.0" layoutY="415.0" text="0/4">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <TableView layoutX="61.0" layoutY="114.0" prefHeight="296.0" prefWidth="370.0">
+                <columns>
+                    <TableColumn prefWidth="75.0" text="X1"/>
+                    <TableColumn prefWidth="75.0" text="X2"/>
+                    <TableColumn prefWidth="75.0" text="X3"/>
+                    <TableColumn prefWidth="75.0" text="X4"/>
+                    <TableColumn prefWidth="75.0" text="X5"/>
+                </columns>
+            </TableView>
+        </AnchorPane>
+    </SplitPane>
 </VBox>

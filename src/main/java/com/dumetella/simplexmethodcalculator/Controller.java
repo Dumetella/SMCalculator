@@ -65,7 +65,7 @@ public class Controller {
         } else if (this.gridM < m) {
             for (int j = this.gridM; j < m; j++) {
                 this.addColumnToMainGrid(this.mainGrid, SpecialConstraints.column20);
-                this.addColumnToXgrid(this.xGrid, SpecialConstraints.column20);
+                this.addColumnToXGrid(this.xGrid, SpecialConstraints.column20);
                 this.gridM++;
             }
         }
@@ -120,7 +120,7 @@ public class Controller {
         }
     }
 
-    private void addColumnToXgrid(GridPane grid, ColumnConstraints constraints) {
+    private void addColumnToXGrid(GridPane grid, ColumnConstraints constraints) {
         grid.getColumnConstraints().add(constraints);
         String text = "X" + (this.gridM + 2);
         grid.addRow(0, new BoxedLabel(45, 30, text).BoxedLabel);
@@ -140,7 +140,7 @@ public class Controller {
         this.clearSubGrid();
     }
 
-    private void ClearTextfield(Integer row, Integer column, GridPane gridPane) {
+    private void ClearTextField(Integer row, Integer column, GridPane gridPane) {
         for (Node node : gridPane.getChildren()) {
             if (GridPane.getRowIndex(node).equals(row) && GridPane.getColumnIndex(node).equals(column)) {
                 if (node instanceof HBox) {
@@ -157,20 +157,20 @@ public class Controller {
     private void clearMainGrid() {
         for (int i = 0; i <= this.gridM; i++) {
             for (int j = 0; j <= this.gridN; j++) {
-                this.ClearTextfield(j, i, this.mainGrid);
+                this.ClearTextField(j, i, this.mainGrid);
             }
         }
     }
 
     private void clearSubGrid() {
         for (int j = 0; j <= this.gridN; j++) {
-            this.ClearTextfield(j, 1, this.subGrid);
+            this.ClearTextField(j, 1, this.subGrid);
         }
     }
 
     private void clearXGrid() {
         for (int i = 0; i <= this.gridM; i++) {
-            this.ClearTextfield(1, i, this.xGrid);
+            this.ClearTextField(1, i, this.xGrid);
         }
     }
 
