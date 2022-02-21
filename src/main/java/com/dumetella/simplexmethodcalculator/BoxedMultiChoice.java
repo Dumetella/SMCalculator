@@ -5,15 +5,14 @@ import javafx.scene.layout.HBox;
 
 public class BoxedMultiChoice {
     public HBox BoxedMultiChoice;
-    private ChoiceBox insert;
 
     public BoxedMultiChoice(int width, int height) {
         this.BoxedMultiChoice = new HBox();
-        this.insert = new ChoiceBox();
-        this.insert.getItems().addAll(">=", "=", "<=");
-        this.insert.setValue(">=");
-        this.insert.setMaxSize(width, height);
-        this.insert.setMinSize(width, height);
-        this.BoxedMultiChoice.getChildren().add(this.insert);
+        ChoiceBox<String> insert = new ChoiceBox();
+        insert.getItems().addAll(">=", "=", "<=");
+        insert.setValue(">=");
+        insert.setMaxSize(width, height);
+        insert.setMinSize(width, height);
+        this.BoxedMultiChoice.getChildren().add(insert);
     }
 }

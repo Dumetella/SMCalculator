@@ -2,13 +2,9 @@ package com.dumetella.simplexmethodcalculator;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,26 +25,18 @@ public class Controller {
     @FXML
     private GridPane xGrid;
 
-    @FXML
-    private Button solveButton;
-
-    @FXML
-    private Button clearButton;
-
-    @FXML
-    private Button toDuoButton;
-
     private int gridN;
 
     private int gridM;
 
-    private Constraints SpecialConstraints;
+    private final Constraints SpecialConstraints;
 
     public Controller() {
         this.gridN = 4;
         this.gridM = 4;
         this.SpecialConstraints = new Constraints();
     }
+
 
     @FXML
     private void resizeGrid() {
@@ -81,23 +69,7 @@ public class Controller {
                 this.gridM++;
             }
         }
-
         return;
-    }
-
-    private Node getNode(Integer row, Integer column, GridPane gridPane) {
-        if (row == 0) {
-            row = null;
-        }
-        if (column == 0) {
-            column = null;
-        }
-        for (Node node : gridPane.getChildren()) {
-            if (GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == column) {
-                return node;
-            }
-        }
-        return null;
     }
 
     private void deleteRow(GridPane grid, final int row) {
@@ -144,7 +116,7 @@ public class Controller {
     private void addColumnToMainGrid(GridPane grid, ColumnConstraints constraints) {
         grid.getColumnConstraints().add(constraints);
         for (int i = 0; i <= this.gridN; i++) {
-            grid.addRow(i, new BoxedTextField(45,30).BoxedTextField);
+            grid.addRow(i, new BoxedTextField(45, 30).BoxedTextField);
         }
     }
 
@@ -159,6 +131,51 @@ public class Controller {
         grid.getRowConstraints().add(constraints);
         grid.addColumn(0, new BoxedMultiChoice(50, 30).BoxedMultiChoice);
         grid.addColumn(1, new BoxedTextField(80, 30).BoxedTextField);
+    }
+
+    @FXML
+    private void Clear() {
+        this.clearMainGrid();
+        this.clearXGrid();
+        this.clearSubGrid();
+    }
+
+    private void ClearTextfield(Integer row, Integer column, GridPane gridPane) {
+        for (Node node : gridPane.getChildren()) {
+            if (GridPane.getRowIndex(node).equals(row) && GridPane.getColumnIndex(node).equals(column)) {
+                if (node instanceof HBox) {
+                    for (Node inner : ((HBox) node).getChildren()) {
+                        if (inner instanceof TextField) {
+                            ((TextField) inner).setText("");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void clearMainGrid() {
+        for (int i = 0; i <= this.gridM; i++) {
+            for (int j = 0; j <= this.gridN; j++) {
+                this.ClearTextfield(j, i, this.mainGrid);
+            }
+        }
+    }
+
+    private void clearSubGrid() {
+        for (int j = 0; j <= this.gridN; j++) {
+            this.ClearTextfield(j, 1, this.subGrid);
+        }
+    }
+
+    private void clearXGrid() {
+        for (int i = 0; i <= this.gridM; i++) {
+            this.ClearTextfield(1, i, this.xGrid);
+        }
+    }
+
+    private void gatherData() {
+
     }
 
     public void init() {

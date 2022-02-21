@@ -166,7 +166,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                  <children>
                                     <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                  </children>
@@ -191,27 +191,27 @@
                                     <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                  </children>
                               </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                                  <children>
                                               <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X1" />
                                  </children>
                               </HBox>
-                              <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                              <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X2" />
                                  </children>
                               </HBox>
-                              <HBox layoutX="55.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                              <HBox layoutX="55.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X3" />
                                  </children>
                               </HBox>
-                              <HBox layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                              <HBox layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X4" />
                                  </children>
                               </HBox>
-                              <HBox layoutX="145.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4">
+                              <HBox layoutX="145.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="0">
                                  <children>
                                     <Label alignment="CENTER" prefHeight="34.0" prefWidth="42.0" text="X5" />
                                  </children>
@@ -245,32 +245,32 @@
                                                 <RowConstraints percentHeight="20.0" vgrow="NEVER" />
                                             </rowConstraints>
                                  <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
                                     </HBox>
-                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
                                     </HBox>
-                                    <HBox layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                                    <HBox layoutX="100.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
                                     </HBox>
-                                    <HBox layoutX="145.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4">
+                                    <HBox layoutX="145.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="0">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
                                     </HBox>
-                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
@@ -295,7 +295,7 @@
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
                                     </HBox>
-                                    <HBox layoutX="190.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                    <HBox layoutX="190.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
@@ -320,7 +320,7 @@
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
                                     </HBox>
-                                    <HBox layoutX="190.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                    <HBox layoutX="190.0" layoutY="70.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
@@ -345,7 +345,7 @@
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
                                     </HBox>
-                                    <HBox layoutX="190.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                                    <HBox layoutX="190.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" />
                                        </children>
@@ -385,7 +385,7 @@
                                                 <RowConstraints percentHeight="20.0" vgrow="NEVER" />
                                             </rowConstraints>
                                             <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                                        <children>
                                           <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="50.0" />
                                        </children>
@@ -410,7 +410,7 @@
                                           <TextField maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="50.0" />
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                                        <children>
                                                       <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="40.0" value="&gt;=">
                                                           <items>
@@ -423,7 +423,7 @@
                                                       </ChoiceBox>
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                                        <children>
                                                       <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" value="&gt;=">
                                                           <items>
@@ -436,7 +436,7 @@
                                                       </ChoiceBox>
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                                        <children>
                                                       <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" value="&gt;=">
                                                           <items>
@@ -449,7 +449,7 @@
                                                       </ChoiceBox>
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
                                        <children>
                                                       <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" value="&gt;=">
                                                           <items>
@@ -462,7 +462,7 @@
                                                       </ChoiceBox>
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
                                        <children>
                                                       <ChoiceBox maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" value="&gt;=">
                                                           <items>
@@ -486,7 +486,7 @@
                                 <ButtonBar layoutX="28.0" prefHeight="25.0" prefWidth="370.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="28.0">
                                     <buttons>
                                         <Button fx:id="solveButton" mnemonicParsing="false" text="Решение" />
-                                        <Button fx:id="clearButton" mnemonicParsing="false" text="Очистить" />
+                                        <Button fx:id="clearButton" mnemonicParsing="false" text="Очистить" onAction="#Clear"/>
                                         <Button fx:id="toDuoButton" mnemonicParsing="false" text="В двойственную" />
                                     </buttons>
                                 </ButtonBar>
